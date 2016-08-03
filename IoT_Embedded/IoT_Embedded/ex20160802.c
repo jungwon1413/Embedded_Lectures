@@ -126,7 +126,7 @@ int main()
 #endif
 
 /*
-4, 실수형
+4. 실수형
 	크기
 float:	4byte
 double: 8byte
@@ -294,7 +294,7 @@ int main()
 
 #endif
 
-#if 1
+#if 0
 #include <stdio.h>
 
 int main(void)
