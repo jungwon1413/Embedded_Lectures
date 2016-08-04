@@ -443,3 +443,14 @@ int main()
 	printf("%d\n", k);
 }
 #endif
+
+#if 0
+#include <stdio.h>
+int main()
+{
+	int i = -8;
+	printf("%d\n", i);
+	return 0;
+}
+
+#endif

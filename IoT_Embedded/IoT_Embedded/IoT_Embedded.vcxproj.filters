@@ -24,5 +24,11 @@
     <ClCompile Include="ex20160803.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="ex20160804.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="extern.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
