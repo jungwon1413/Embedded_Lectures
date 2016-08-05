@@ -268,7 +268,7 @@ int main()
 }
 #endif
 
-#if 1
+#if 0
 #define MAX 10
 int main()
 {
@@ -278,4 +278,8 @@ int main()
 	}
 	return 0;
 }
+#endif
+
+#if 0
+int num = 0;
 #endif
