@@ -247,12 +247,12 @@ int main()
 const int month_end[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 const int month_end_special[12] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-void INPUT_SCREEN(int* year, int* month);
-void INTERFACE(int year, int month, int* m_total);
-int LEAP(int year);
-void CALC_DAY(int* day, int month, int leap_year);
-void INIT_CALC(int m_total[]);
-int CONTROL(int* year, int* month);
+void INPUT_SCREEN(int* , int* );
+void CALC_UI(int , int , int* );
+int LEAP(int );
+void CALC_DAY(int* , int , int );
+void INIT_CALC(int [], int* );
+int CONTROL(int* , int* );
 
 int main()
 {
@@ -286,19 +286,19 @@ int main()
 		}
 
 		printf("(조작법: 지난달: ←, 다음달: →, 지난해: ↑, 다음해: ↓)\n");
-		INTERFACE(year, month, m_total);
-		printf("\n종료는 Q키를 입력하세요...\n");
+		CALC_UI(year, month, m_total);
+		printf("\n종료는 ESC키를 누르세요...\n");
 		input = CONTROL(&year, &month);
 
 		system("cls");
 
 		
-	} while (input != ('Q' | 'q'));
+	} while (input != 27);
 
 	return 0;
 }
 
-void INTERFACE(int year, int month, int* m_total)
+void CALC_UI(int year, int month, int* m_total)
 {
 	int i;
 
@@ -320,13 +320,26 @@ void INTERFACE(int year, int month, int* m_total)
 void INPUT_SCREEN(int* year, int* month)
 {
 	int y, m;
-	printf("년월입력: ");
+	
+	printf("년월입력(초기값은 0년1월 입니다): ");
 	scanf("%d %d", &y, &m);
 
-	*year = y;
-	*month = m;
+	if (m < 0)
+		*month = 1;
+	else if (m == 0)
+	{
+		--*year;
+		*month = 12;
+	}
+	else
+		*month = (m - ((m - 1) / 12) * 12) % 13; // 여기까지 월 판단
 
-	system("cls"); // clear screen 명령어
+	if (y < 0)
+		*year = 0;
+	else
+		*year = y; // 여기까지 년도 판단
+
+	system("cls");
 }
 
 int LEAP(int year)
@@ -370,17 +383,42 @@ int CONTROL(int* year, int* month)
 		
 		switch (c)
 		{
-			case 72:
-				--*year;
+			case 72: // 년도수 감소
+				if (*year > 0)
+					--*year;
+				else
+					*year = 0;
 				return c;
-			case 80:
+			case 80: // 년도수 증가
 				++*year;
 				return c;
-			case 77:
-				++*month;
+			case 77: // 월 증가
+				if (*month == 12)
+				{
+					++*year;
+					*month = 1;
+				}
+				else
+					++*month;				
 				return c;
-			case 75:
-				--*month;
+			case 75: // 월 감소
+				if (*month <= 0)
+					*month = 1;
+				else if (*month == 1)
+				{
+					if (*year <= 0)
+					{
+						*year = 0;
+						*month = 1;
+					}
+					else
+					{
+						--*year;
+						*month = 12;
+					}
+				}
+				else
+					--*month;
 				return c;
 		}
 		
@@ -470,3 +508,5 @@ int main()
 }
 
 #endif
+
+//////////////////////////8월5일 스터디그룹 내용 종료
