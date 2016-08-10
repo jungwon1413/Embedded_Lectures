@@ -480,7 +480,7 @@ int main()
 }
 #endif
 
-#if 1
+#if 0
 #include <stdio.h>
 int main()
 {
@@ -594,5 +594,52 @@ int main(void)
 		system("cls");
 	}
 	return 0;
+}
+#endif
+
+
+///////////////////////// 개인적인 탐구사항입니다.
+#if 0
+#include <stdio.h>
+int main()
+{
+	int i=10, j=5, count1 = 0, count2 = 0;
+
+	while (count1 < i)
+	{
+		while (count2 < j)
+			count2++;
+		count1++;
+	}
+
+	count1 = count2 = 0;
+
+	while (count1 != i)
+	{
+		while (count2 != j)
+			count2++;
+		count1++;
+	}
+}
+#endif
+
+#if 1
+#include <stdio.h>
+int main()
+{
+	char run = 0;
+
+	while (run != 0)
+	{
+		for (int i = 0; i != 100; ++i);
+		++run;
+	}
+
+
+	while (run != 1)
+	{
+		for (int i = 100; i != 0; --i);
+		--run;
+	}
 }
 #endif
