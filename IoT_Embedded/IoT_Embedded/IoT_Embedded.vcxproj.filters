@@ -39,5 +39,11 @@
     <ClCompile Include="ex20160809.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="ex20160810.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Temp.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

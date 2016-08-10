@@ -340,7 +340,7 @@ int main()
 
 #endif
 
-#if 1
+#if 0
 #include <stdio.h>
 #pragma warning(disable:4996)
 int main()
@@ -362,5 +362,21 @@ int main()
 			buf[i] = 0;
 	}
 	printf("%s\n", buf);
+}
+#endif
+
+#if 0
+#include <stdio.h>
+#include <stdlib.h>
+#pragma warning(disable:4996)
+int main()
+{
+	int age;
+	char* buffer = (char*) malloc (sizeof(char) * 200);
+	sscanf("19 cool kid", "%d %[^\t\n]", &age, buffer);
+
+	printf("%s is %d years old\n", buffer, age);
+	free(buffer);
+	return 0;
 }
 #endif
