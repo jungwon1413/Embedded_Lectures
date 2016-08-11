@@ -158,6 +158,7 @@
       <IgnoreStandardIncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</IgnoreStandardIncludePath>
       <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</PreprocessToFile>
     </ClCompile>
+    <ClCompile Include="ex20160811.c" />
     <ClCompile Include="extern.c" />
     <ClCompile Include="Temp.c" />
   </ItemGroup>
