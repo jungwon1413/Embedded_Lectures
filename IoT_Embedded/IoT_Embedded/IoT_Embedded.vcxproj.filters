@@ -48,5 +48,8 @@
     <ClCompile Include="ex20160811.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="ex20160812.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
